@@ -62,7 +62,17 @@ public class Book {
         System.out.println(title + "\t\t\t" + author + "\t\t\t" + subject);
     }
     
-    
+    // changign Info of a Book
+    public void changeBookInfo() throws IOException
+    {
+        Scanner scanner = new Scanner(System.in);
+        String input;
+        
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        
+        
+        
+    }
     
     /*------------Getter FUNCs.---------*/
     
