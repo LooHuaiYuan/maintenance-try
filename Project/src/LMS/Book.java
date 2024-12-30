@@ -77,7 +77,7 @@ public class Book {
         {
             System.out.println("\nEnter new Author: ");
             author = reader.readLine();
-        }      
+
         
         System.out.println("\nBook is successfully updated.");
         
