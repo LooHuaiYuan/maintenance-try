@@ -81,21 +81,7 @@ public class Book {
 
         System.out.println("\nUpdate Subject? (y/n)");
         input = scanner.next();
-        
-        if(input.equals("y"))
-        {
-            System.out.println("\nEnter new Subject: ");
-            subject = reader.readLine();
-        }
-
-        System.out.println("\nUpdate Title? (y/n)");
-        input = scanner.next();
-        
-        if(input.equals("y"))
-        {
-            System.out.println("\nEnter new Title: ");
-            title = reader.readLine();
-        }        
+             
         
         System.out.println("\nBook is successfully updated.");
         
