@@ -36,25 +36,7 @@ public class Book {
 
 
     // printing all hold req on a book.
-    public void printHoldRequests()
-    {
-        if (!holdRequestsOperations.holdRequests.isEmpty())
-        { 
-            System.out.println("\nHold Requests are: ");
-            
-            System.out.println("---------------------------------------------------------------------------------------------------------------------------------------");            
-            System.out.println("No.\t\tBook's Title\t\t\tBorrower's Name\t\t\tRequest Date");
-            System.out.println("---------------------------------------------------------------------------------------------------------------------------------------");
-            
-            for (int i = 0; i < holdRequestsOperations.holdRequests.size(); i++)
-            {                      
-                System.out.print(i + "-" + "\t\t");
-                holdRequestsOperations.holdRequests.get(i).print();
-            }
-        }
-        else
-            System.out.println("\nNo Hold Requests.");                                
-    }
+    
     
     // printing book's Info
     public void printInfo()
