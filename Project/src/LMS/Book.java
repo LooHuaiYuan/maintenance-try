@@ -311,5 +311,4 @@ public class Book {
         System.out.println("\nThe book " + l.getBook().getTitle() + " is successfully returned by " + borrower.getName() + ".");
         System.out.println("\nReceived by: " + staff.getName());            
     }
-    
 }   // Book Class Closed
