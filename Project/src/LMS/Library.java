@@ -517,7 +517,6 @@ public class Library {
         Scanner input = new Scanner(System.in);
         
         int id = 0;
-        String password = "";
         
         System.out.println("\nEnter ID: ");
         
@@ -530,7 +529,7 @@ public class Library {
         }
         
         System.out.println("Enter Password: ");
-        password = input.next();
+        String password = input.next();
         
         for (int i = 0; i < persons.size(); i++)
         {
@@ -601,7 +600,7 @@ public class Library {
         {
             String host = "jdbc:derby://localhost:1527/LMS";
             String uName = "haris";
-            String uPass= "123";
+            String uPass = System.getenv("DB_PASSWORD");
             Connection con = DriverManager.getConnection( host, uName, uPass );
             return con;
         }
