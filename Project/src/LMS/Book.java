@@ -13,8 +13,8 @@ public class Book {
     private String author;        // Author of book!
     private boolean isIssued;        // this will be true if the book is currently issued to some borrower.
     private HoldRequestOperations holdRequestsOperations =new HoldRequestOperations();
-    static int currentIdNumber = 0;     //This will be unique for every book, since it will be incremented when everytime
-                                        //when a book is created
+    static int currentIdNumber = 0;     //This will be unique for every book, since it will be incremented when everytime when a book is created
+                                        
     
   
     public Book(int id,String t, String s, String a, boolean issued)    // Parameterise cons.
@@ -159,8 +159,8 @@ public class Book {
     
 
 
-   // Request for Holding a Book
-    public void makeHoldRequest(Borrower borrower)
+
+    public void makeHoldRequest(Borrower borrower)// Request for Holding a Book
     {
         boolean makeRequest = true;
 

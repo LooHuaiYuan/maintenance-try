@@ -9,8 +9,8 @@ public abstract class Person
     protected String address;   // Address of every person related to library
     protected int phoneNo;      // PhoneNo of every person related to library
     
-    static int currentIdNumber = 0;     //This will be unique for every person, since it will be incremented when everytime
-                                       //when a person is created
+    static int currentIdNumber = 0;     //This will be unique for every person, since it will be incremented when everytime when a person is created
+                                       
 
     public Person(int idNum, String name, String address, int phoneNum)   // para cons.
     {
@@ -81,7 +81,6 @@ public abstract class Person
     {
         return id;
     }
-    /*---------------------------*/
     
      public static void setIDCount(int n)
     {
