@@ -910,7 +910,7 @@ public class Library {
                         
                         Borrower bb=null;
                         boolean set=true;
-                        boolean okay=true;
+                        
                         
                         for(int i=0;i<lib.getPersons().size() && set;i++)
                         {
