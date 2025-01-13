@@ -543,13 +543,12 @@ public class Library {
             }
         }
 
-        if(librarian!=null)
+        if (librarian != null 
+            && librarian.getID() == id 
+            && librarian.getPassword().equals(password)) 
         {
-            if (librarian.getID() == id && librarian.getPassword().equals(password))
-            {
-                System.out.println("\nLogin Successful");
-                return librarian;
-            }
+            System.out.println("\nLogin Successful");
+            return librarian;
         }
 
         System.out.println("\nSorry! Wrong ID or Password");        
@@ -917,13 +916,10 @@ public class Library {
 
                         for(int i=0;i<lib.getPersons().size() && set;i++)
                         {
-                            if(lib.getPersons().get(i).getClass().getSimpleName().equals("Borrower"))
+                            if (lib.getPersons().get(i).getClass().getSimpleName().equals("Borrower") && lib.getPersons().get(i).getID() == id) 
                             {
-                                if(lib.getPersons().get(i).getID()==id)
-                                {
-                                   set =false;
-                                    bb=(Borrower)(lib.getPersons().get(i));
-                                }
+                                set =false;
+                                bb=(Borrower)(lib.getPersons().get(i));
                             }
                         }
 
@@ -1189,10 +1185,8 @@ public class Library {
                   boolean set=true;
                   for(int j=0;j<loans.size() && set ;j++)
                   {
-                      if(lib.getBooks().get(i).getID()==loans.get(j).getBook().getID())
+                      if (lib.getBooks().get(i).getID() == loans.get(j).getBook().getID() && loans.get(j).getReceiver() == null)
                       {
-                          if(loans.get(j).getReceiver()==null)
-                          {
                             template = "INSERT INTO LIBRARY.BORROWED_BOOK(BOOK,BORROWER) values (?,?)";
                             PreparedStatement stmt = con.prepareStatement(template);
                             stmt.setInt(1,loans.get(j).getBook().getID());
@@ -1200,11 +1194,8 @@ public class Library {
 
                             stmt.executeUpdate();
                             set=false;
-                          }
                       }
-
                   }
-
               }
           }   
     } // Filling Done!  
