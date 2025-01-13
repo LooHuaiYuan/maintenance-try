@@ -542,12 +542,13 @@ public class Library {
             }
         }
 
-        if (librarian != null 
-            && librarian.getID() == id 
-            && librarian.getPassword().equals(password)) 
+        if(librarian!=null)
         {
-            System.out.println("\nLogin Successful");
-            return librarian;
+            if (librarian.getID() == id && librarian.getPassword().equals(password))
+            {
+                System.out.println("\nLogin Successful");
+                return librarian;
+            }
         }
 
         System.out.println("\nSorry! Wrong ID or Password");        
@@ -915,10 +916,13 @@ public class Library {
 
                         for(int i=0;i<lib.getPersons().size() && set;i++)
                         {
-                            if (lib.getPersons().get(i).getClass().getSimpleName().equals("Borrower") && lib.getPersons().get(i).getID() == id) 
+                            if(lib.getPersons().get(i).getClass().getSimpleName().equals("Borrower"))
                             {
-                                set =false;
-                                bb=(Borrower)(lib.getPersons().get(i));
+                                if(lib.getPersons().get(i).getID()==id)
+                                {
+                                   set =false;
+                                    bb=(Borrower)(lib.getPersons().get(i));
+                                }
                             }
                         }
 
@@ -1179,25 +1183,26 @@ public class Library {
         /* Filling Borrowed Book Table*/
         for(int i=0;i<lib.getBooks().size();i++)
           {
-              if(lib.getBooks().get(i).getIssuedStatus()==true)
+              if (lib.getBooks().get(i).getIssuedStatus()) 
               {
                   boolean set=true;
                   for(int j=0;j<loans.size() && set ;j++)
                   {
-                    if (lib.getBooks().get(i).getID() == loans.get(j).getBook().getID() && loans.get(j).getReceiver() == null)
-                    {
-                        template = "INSERT INTO LIBRARY.BORROWED_BOOK(BOOK,BORROWER) values (?,?)";
-                        PreparedStatement stmt = con.prepareStatement(template);
-                        stmt.setInt(1,loans.get(j).getBook().getID());
-                        stmt.setInt(2,loans.get(j).getBorrower().getID());
-                
-                        stmt.executeUpdate();
-                        set=false;
-                    }
-                      
+                      if(lib.getBooks().get(i).getID()==loans.get(j).getBook().getID())
+                      {
+                          if(loans.get(j).getReceiver()==null)
+                          {
+                            template = "INSERT INTO LIBRARY.BORROWED_BOOK(BOOK,BORROWER) values (?,?)";
+                            PreparedStatement stmt = con.prepareStatement(template);
+                            stmt.setInt(1,loans.get(j).getBook().getID());
+                            stmt.setInt(2,loans.get(j).getBorrower().getID());
+
+                            stmt.executeUpdate();
+                            set=false;
+                          }
+                      }
                   }
-                  
               }
           }   
-        } // Filling Done!  
+    } // Filling Done!  
 } // Library Class Closed
