@@ -1199,12 +1199,5 @@ public class Library {
                   }
               }
           }   
-        } // Filling Done!  
-     
-    
-    
-    
-    
-    
-    
+        } // Filling Done!   
 }   // Library Class Closed
