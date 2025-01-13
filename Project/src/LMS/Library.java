@@ -1179,7 +1179,7 @@ public class Library {
         /* Filling Borrowed Book Table*/
         for(int i=0;i<lib.getBooks().size();i++)
           {
-              if(lib.getBooks().get(i).getIssuedStatus())
+              if(lib.getBooks().get(i).getIssuedStatus()==true)
               {
                   boolean set=true;
                   for(int j=0;j<loans.size() && set ;j++)
