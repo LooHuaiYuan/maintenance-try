@@ -10,7 +10,6 @@ import java.util.Date;
 import java.util.Scanner;
 
 public class Book {
-
     private int bookID;           // ID given by a library to a book to make it distinguishable from other books
     private String title;         // Title of a book 
     private String subject;       // Subject to which a book is related!
