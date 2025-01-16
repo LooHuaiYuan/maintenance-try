@@ -10,11 +10,13 @@ public class HoldRequestOperations {
     {
         holdRequests= new ArrayList<>();
     }
+
     // adding a hold req.
     public void addHoldRequest(HoldRequest hr)
     {
         holdRequests.add(hr);
     }
+
     // removing a hold req.
     public void removeHoldRequest()
     {
