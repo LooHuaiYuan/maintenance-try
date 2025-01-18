@@ -7,13 +7,16 @@ public class HoldRequestOperations {
     static ArrayList<HoldRequest> holdRequests;
 
     public HoldRequestOperations() {
-        synchronized (HoldRequestOperations.class) {
-            if (holdRequests == null) {
-                holdRequests = new ArrayList<>();
-            }
-        }
+        initializeHoldRequests();
     }
     
+    // Thread-safe lazy initialization in a static method
+    private static synchronized void initializeHoldRequests() {
+        if (holdRequests == null) {
+            holdRequests = new ArrayList<>();
+        }
+    }
+
     // adding a hold req.
     public void addHoldRequest(HoldRequest hr)
     {
