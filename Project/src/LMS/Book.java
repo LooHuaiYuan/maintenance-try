@@ -20,21 +20,20 @@ public class Book {
                                         
     
   
-    public Book(int id,String t, String s, String a, boolean issued)    // Parameterise cons.
-    {
-        currentIdNumber++;
-        if(id==-1)
-        {
-            bookID = currentIdNumber;
+    public Book(int id, String t, String s, String a, boolean issued) {
+        synchronized (Book.class) {
+            currentIdNumber++;
+            if (id == -1) {
+                bookID = currentIdNumber;
+            } else {
+                bookID = id;
+            }
         }
-        else
-            bookID=id;
-        
+    
         title = t;
         subject = s;
         author = a;
         isIssued = issued;
-
     }
 
 
