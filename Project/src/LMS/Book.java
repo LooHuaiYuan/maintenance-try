@@ -17,7 +17,9 @@ public class Book {
     private String author;        // Author of book!
     private boolean isIssued;        // this will be true if the book is currently issued to some borrower.
     private HoldRequestOperations holdRequestsOperations =new HoldRequestOperations();
-    private static final AtomicInteger currentIdNumber = new AtomicInteger(0);     //This will be unique for every book, since it will be incremented when everytime when a book is created
+    
+    //This will be unique for every book, since it will be incremented when everytime when a book is created
+    private static final AtomicInteger currentIdNumber = new AtomicInteger(0);
                                         
     
   
