@@ -4,13 +4,16 @@ import java.util.ArrayList;
 
 public class HoldRequestOperations {
 
-   static ArrayList <HoldRequest> holdRequests;
+    static ArrayList<HoldRequest> holdRequests;
 
-    public HoldRequestOperations()
-    {
-        holdRequests= new ArrayList<>();
+    public HoldRequestOperations() {
+        synchronized (HoldRequestOperations.class) {
+            if (holdRequests == null) {
+                holdRequests = new ArrayList<>();
+            }
+        }
     }
-
+    
     // adding a hold req.
     public void addHoldRequest(HoldRequest hr)
     {
