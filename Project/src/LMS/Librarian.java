@@ -10,13 +10,14 @@ public class Librarian extends Staff {
     int officeNo;     //Office Number of the Librarian
     
     // Use AtomicInteger for thread-safe increment
-    private static final AtomicInteger currentOfficeNumber = new AtomicInteger(0);
+    private static final AtomicInteger currentOfficeNumber = 
+        new AtomicInteger(0);
 
     public Librarian(int id, String n, String a, int p, double s, int of) {
         super(id, n, a, p, s);
 
         if (of == -1)
-            officeNo = currentOfficeNumber.getAndIncrement(); // Thread-safe increment
+            officeNo = currentOfficeNumber.getAndIncrement();
         else
             officeNo = of;
     }
