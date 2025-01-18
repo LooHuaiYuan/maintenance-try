@@ -20,9 +20,9 @@ import java.util.logging.Logger;
 public class Library {
 
     private String name;                                // name of library
-    public static final Librarian librarian;                        // object of Librarian (only one)
+    private static Librarian librarian;                        // object of Librarian (only one)
     
-    public static final ArrayList <Person> persons = new ArrayList<>();
+    private static ArrayList <Person> persons;                 // all clerks and borrowers
     private ArrayList <Book> booksInLibrary;            // all books in library are here!
 
     private ArrayList <Loan> loans;                     // history of all books which have been issued
