@@ -11,7 +11,8 @@ public abstract class Person
     protected String address;   // Address of every person related to library
     protected int phoneNo;      // PhoneNo of every person related to library
     
-    //This will be unique for every person, since it will be incremented when everytime when a person is created
+    //This will be unique for every person, 
+    //since it will be incremented when everytime when a person is created
     private static final AtomicInteger currentIdNumber = 
         new AtomicInteger(0);
                                        
@@ -26,7 +27,7 @@ public abstract class Person
             
             password = Integer.toString(id);
             this.name = name;
-            
+
             this.address = address;
             phoneNo = phoneNum;
         }    
