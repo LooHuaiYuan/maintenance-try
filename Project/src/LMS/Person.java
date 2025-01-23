@@ -1,6 +1,8 @@
 
 package LMS;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 public abstract class Person 
 {   
     protected int id;           // ID of every person related to library
@@ -9,25 +11,26 @@ public abstract class Person
     protected String address;   // Address of every person related to library
     protected int phoneNo;      // PhoneNo of every person related to library
     
-    static int currentIdNumber = 0;     //This will be unique for every person, since it will be incremented when everytime when a person is created
+    //This will be unique for every person, 
+    //since it will be incremented when everytime when a person is created
+    private static final AtomicInteger currentIdNumber = 
+        new AtomicInteger(0);
                                        
 
-    public Person(int idNum, String name, String address, int phoneNum)   // para cons.
-    {
-        currentIdNumber++;
-        
-        if(idNum==-1)
-        {
-            id = currentIdNumber;
-        }
-        else
-            id = idNum;
-        
-        password = Integer.toString(id);
-        this.name = name;
-        this.address = address;
-        phoneNo = phoneNum;
-    }        
+        public Person(int idNum, String name, String address, int phoneNum) {
+            if (idNum == -1) {
+                // Thread-safe increment
+                id = currentIdNumber.incrementAndGet(); 
+            } else {
+                id = idNum;
+            }
+            
+            password = Integer.toString(id);
+            this.name = name;
+
+            this.address = address;
+            phoneNo = phoneNum;
+        }    
     
     // Printing Info of a Person
     public void printInfo()

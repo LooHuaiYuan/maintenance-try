@@ -8,6 +8,7 @@ import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Book {
     private int bookID;           // ID given by a library to a book to make it distinguishable from other books
@@ -16,26 +17,22 @@ public class Book {
     private String author;        // Author of book!
     private boolean isIssued;        // this will be true if the book is currently issued to some borrower.
     private HoldRequestOperations holdRequestsOperations =new HoldRequestOperations();
-    static int currentIdNumber = 0;     //This will be unique for every book, since it will be incremented when everytime when a book is created
-                                        
     
-  
-    public Book(int id,String t, String s, String a, boolean issued)    // Parameterise cons.
-    {
-        currentIdNumber++;
-        if(id==-1)
-        {
-            bookID = currentIdNumber;
+    // This will be unique for every book.
+    private static final AtomicInteger currentIdNumber = new AtomicInteger(0);
+
+    public Book(int id, String t, String s, String a, boolean issued) {
+        if (id == -1) {
+            bookID = currentIdNumber.incrementAndGet();
+        } else {
+            bookID = id;
         }
-        else
-            bookID=id;
-        
         title = t;
         subject = s;
         author = a;
         isIssued = issued;
-
     }
+
 
 
     // printing all hold req on a book.

@@ -4,11 +4,17 @@ import java.util.ArrayList;
 
 public class HoldRequestOperations {
 
-   static ArrayList <HoldRequest> holdRequests;
+    static ArrayList<HoldRequest> holdRequests;
 
-    public HoldRequestOperations()
-    {
-        holdRequests= new ArrayList<>();
+    public HoldRequestOperations() {
+        initializeHoldRequests();
+    }
+    
+    // Thread-safe lazy initialization in a static method
+    private static synchronized void initializeHoldRequests() {
+        if (holdRequests == null) {
+            holdRequests = new ArrayList<>();
+        }
     }
 
     // adding a hold req.
